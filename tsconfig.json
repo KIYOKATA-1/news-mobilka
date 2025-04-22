@@ -9,5 +9,9 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["App.tsx", "declarations/**/*"]
+  "include": [
+    "App.tsx",
+    "declarations/**/*"
+  ],
+  "extends": "expo/tsconfig.base"
 }
