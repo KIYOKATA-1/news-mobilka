@@ -10,5 +10,8 @@ export const HomeStyle = StyleSheet.create({
         fontSize: 16,
         fontWeight: 600,
         color: '#fff',
+    },
+    webview:{
+        flex: 1
     }
 });

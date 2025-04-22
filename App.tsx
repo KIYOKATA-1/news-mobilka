@@ -9,11 +9,12 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#000" />
-      {authenticated ? (
+      <HomeScreen/>
+      {/* {authenticated ? (
         <HomeScreen />
       ) : (
         <LoginScreen onAuthSuccess={() => setAuthenticated(true)} />
-      )}
+      )} */}
     </>
   );
 }

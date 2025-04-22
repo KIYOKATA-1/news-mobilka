@@ -1,12 +1,24 @@
-import React from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import React, { useState } from "react";
+import { ActivityIndicator, Alert, SafeAreaView, Text, View } from "react-native";
 import { HomeStyle } from "../styles/Home.styles";
-export default function HomeScreen(){
-    return(
-        <SafeAreaView style={HomeStyle.container}>
-            <View>
-                <Text style={HomeStyle.title}>PLACE FOR WEBVIEW</Text>
-            </View>
-        </SafeAreaView>
-    )
+import { WebView } from "react-native-webview";
+
+export default function HomeScreen() {
+  const [loadingWebView, setLoadingWebView] = useState(true);
+
+  return (
+    <SafeAreaView style={HomeStyle.container}>
+      {loadingWebView && (
+        <ActivityIndicator size="large"  />
+      )}
+      <WebView
+        source={{ uri: 'https://news-app-eight-cyan.vercel.app' }}
+        onLoadEnd={() => setLoadingWebView(false)}
+        onError={() => Alert.alert('Ошибка', 'Не удалось загрузить веб-приложение')}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+      />
+
+    </SafeAreaView>
+  );
 }
