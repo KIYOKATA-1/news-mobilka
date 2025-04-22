@@ -23,7 +23,7 @@ export const LoginStyle = StyleSheet.create({
         ...Platform.select({
           ios: {
             shadowColor: 'rgba(120, 133, 243, 1)',
-            shadowOffset: { width: 0, height: 1 },
+            shadowOffset: { width: 4, height: 2 },
             shadowOpacity: 0.3,
             shadowRadius: 5,
           },
