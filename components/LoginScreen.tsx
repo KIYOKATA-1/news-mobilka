@@ -7,7 +7,7 @@ export default function LoginScreen() {
     <SafeAreaView style={LoginStyle.container}>
       <Text style={LoginStyle.title}>Авторизация</Text>
       <TouchableOpacity style={LoginStyle.loginBtn}>
-        <Text>Войти</Text>
+        <Text style={LoginStyle.btnTxt}>Войти</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

@@ -13,12 +13,13 @@ export const LoginStyle = StyleSheet.create({
     },
     loginBtn:{
         borderRadius: 8,
-        backgroundColor: '#fff', 
+        backgroundColor: '#fff',
         borderWidth: 1,
-        borderColor: '#fff',     
+        borderColor: '#fff',
         paddingHorizontal: 24,
         paddingVertical: 12,
-    
+        alignSelf: 'center',
+      
         ...Platform.select({
           ios: {
             shadowColor: 'rgba(120, 133, 243, 1)',
@@ -30,6 +31,12 @@ export const LoginStyle = StyleSheet.create({
             elevation: 5,
           },
         }),
+    },
+    btnTxt:{
+        color: 'black',
+        textTransform: 'uppercase',
+        fontSize: 14,
+        fontWeight: '600',
     }
 });
 
