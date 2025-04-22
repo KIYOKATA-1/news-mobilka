@@ -7,8 +7,8 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#fff" />
-      {/* <LoginScreen/> */}
-      <HomeScreen/>
+      <LoginScreen/>
+      {/* <HomeScreen/> */}
 
     </>
   );
