@@ -68,6 +68,8 @@
     </array>
     <key>UIUserInterfaceStyle</key>
     <string>Light</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>Используется для авторизации по лицу</string>
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
   </dict>
