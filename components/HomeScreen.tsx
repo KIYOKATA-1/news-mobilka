@@ -3,13 +3,16 @@ import {
   ActivityIndicator,
   Alert,
   SafeAreaView,
+  TouchableOpacity,
   Text,
   View,
 } from "react-native";
 import { HomeStyle } from "../styles/Home.styles";
 import { WebView } from "react-native-webview";
-
-export default function HomeScreen() {
+interface Props {
+  onLogout: () => void;
+}
+export default function HomeScreen({ onLogout }: Props) {
   const [loadingWebView, setLoadingWebView] = useState(true);
 
   return (
@@ -23,8 +26,13 @@ export default function HomeScreen() {
         }
         javaScriptEnabled
         domStorageEnabled
-        style={HomeStyle.webview} 
+        style={HomeStyle.webview}
       />
+      <View style={HomeStyle.footer}>
+        <TouchableOpacity onPress={onLogout} style={HomeStyle.logoutButton}>
+          <Text style={HomeStyle.btnTxt}>Выйти</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
