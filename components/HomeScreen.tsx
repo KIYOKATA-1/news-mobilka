@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { ActivityIndicator, Alert, SafeAreaView, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Alert,
+  SafeAreaView,
+  Text,
+  View,
+} from "react-native";
 import { HomeStyle } from "../styles/Home.styles";
 import { WebView } from "react-native-webview";
 
@@ -8,17 +14,17 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={HomeStyle.container}>
-      {loadingWebView && (
-        <ActivityIndicator size="large"  />
-      )}
+      {loadingWebView && <ActivityIndicator size="large" />}
       <WebView
-        source={{ uri: 'https://news-app-eight-cyan.vercel.app' }}
+        source={{ uri: "https://news-app-eight-cyan.vercel.app" }}
         onLoadEnd={() => setLoadingWebView(false)}
-        onError={() => Alert.alert('Ошибка', 'Не удалось загрузить веб-приложение')}
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
+        onError={() =>
+          Alert.alert("Ошибка", "Не удалось загрузить веб-приложение")
+        }
+        javaScriptEnabled
+        domStorageEnabled
+        style={{ flex: 1 }} 
       />
-
     </SafeAreaView>
   );
 }
