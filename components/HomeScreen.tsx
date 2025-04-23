@@ -23,7 +23,7 @@ export default function HomeScreen() {
         }
         javaScriptEnabled
         domStorageEnabled
-        style={{ flex: 1 }} 
+        style={HomeStyle.webview} 
       />
     </SafeAreaView>
   );
