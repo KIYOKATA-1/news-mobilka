@@ -143,7 +143,7 @@ export default function HomeScreen({ onLogout }: Props) {
                 <Text style={HomeStyle.sideButtonText}>Скачать файл</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={HomeStyle.sideButton}
+                style={HomeStyle.logout}
                 onPress={() => {
                   closeMenu();
                   onLogout();
