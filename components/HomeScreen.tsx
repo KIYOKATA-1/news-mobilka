@@ -18,7 +18,6 @@ export default function HomeScreen({ onLogout }: Props) {
   const [loadingWebView, setLoadingWebView] = useState(true);
   const [lastFileUrl, setLastFileUrl] = useState<string>("");
 
-
   const handleFileUpload = async () => {
     try {
       const res = await DocumentPicker.getDocumentAsync({
@@ -48,6 +47,23 @@ export default function HomeScreen({ onLogout }: Props) {
       Alert.alert("Ошибка", "Не удалось загрузить файл.");
     }
   };
+
+  const handleFileDownload = async () => {
+    if (!lastFileUrl) {
+      Alert.alert("Внимание", "Сначала загрузите файл, чтобы скачать его.");
+      return;
+    }
+
+    try {
+      const filename = lastFileUrl.split("/").pop() || "download.bin";
+      const localPath = FileSystem.documentDirectory + filename;
+      const { uri } = await FileSystem.downloadAsync(lastFileUrl, localPath);
+      Alert.alert("Успех", `Файл сохранён по пути:\n${uri}`);
+    } catch (e) {
+      console.warn(e);
+      Alert.alert("Ошибка", "Не удалось скачать файл.");
+    }
+  };
   return (
     <SafeAreaView style={HomeStyle.container}>
       {loadingWebView && <ActivityIndicator size="large" />}
@@ -62,6 +78,20 @@ export default function HomeScreen({ onLogout }: Props) {
         style={HomeStyle.webview}
       />
       <View style={HomeStyle.footer}>
+        <TouchableOpacity
+          onPress={handleFileUpload}
+          style={HomeStyle.uploadButton}
+        >
+          <Text style={HomeStyle.btnTxt}>Загрузить файл</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={handleFileDownload}
+          style={HomeStyle.downloadButton}
+        >
+          <Text style={HomeStyle.btnTxt}>Скачать файл</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity onPress={onLogout} style={HomeStyle.logoutButton}>
           <Text style={HomeStyle.btnTxt}>Выйти</Text>
         </TouchableOpacity>
